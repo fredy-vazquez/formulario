@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="left">30sp</dimen>
+    <dimen name="top">20sp</dimen>
+    <dimen name="bottom">20sp</dimen>
+    <dimen name="titulo">20sp</dimen>
+</resources>

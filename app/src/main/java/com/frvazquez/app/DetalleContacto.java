@@ -1,0 +1,65 @@
+package com.frvazquez.app;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class DetalleContacto extends AppCompatActivity {
+
+    private TextView tvNombre, tvFechaNacimiento, tvTelefono, tvEmail, tvDescripcion;
+    private Button btnEdit;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detalle_contacto);
+        cargarDatosContacto();
+        editarContacto();
+    }
+
+    private void cargarDatosContacto() {
+        Bundle parametros = getIntent().getExtras();
+
+        String nombreCompleto = parametros.getString(getResources().getString(R.string.pnombre_completo));
+        String fechaNacimiento = parametros.getString(getResources().getString(R.string.pfecha_nacimiento));
+        String telefono = parametros.getString(getResources().getString(R.string.ptelefono));
+        String email = parametros.getString(getResources().getString(R.string.pemail));
+        String descripcion = parametros.getString(getResources().getString(R.string.pdescripcion));
+
+        tvNombre = findViewById(R.id.tvNombre);
+        tvFechaNacimiento = findViewById(R.id.tvFechaNacimiento);
+        tvTelefono = findViewById(R.id.tvTelefono);
+        tvEmail = findViewById(R.id.tvEmail);
+        tvDescripcion = findViewById(R.id.tvDescripcion);
+
+        tvNombre.setText(nombreCompleto);
+        tvFechaNacimiento.setText(fechaNacimiento);
+        tvTelefono.setText(telefono);
+        tvEmail.setText(email);
+        tvDescripcion.setText(descripcion);
+    }
+
+    private void editarContacto() {
+        if(null == btnEdit)
+            btnEdit = findViewById(R.id.btnEdit);
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetalleContacto.this, MainActivity.class);
+                intent.putExtra(getResources().getString(R.string.pnombre_completo), tvNombre.getText().toString());
+                intent.putExtra(getResources().getString(R.string.pfecha_nacimiento), tvFechaNacimiento.getText().toString());
+                intent.putExtra(getResources().getString(R.string.ptelefono), tvTelefono.getText().toString());
+                intent.putExtra(getResources().getString(R.string.pemail), tvEmail.getText().toString());
+                intent.putExtra(getResources().getString(R.string.pdescripcion), tvDescripcion.getText().toString());
+                startActivity(intent);
+
+            }
+        });
+    }
+}
