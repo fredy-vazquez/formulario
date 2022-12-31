@@ -7,7 +7,11 @@
     <string name="descripcion_contacto">Descripción de Contacto</string>
     <string name="siguiente">SIGUIENTE</string>
     <string name="titulo">CONFIRMACIÓN DE DATOS</string>
-    <string name="info">Sin Información Disponible</string>
+    <string name="dnombre_completo">Fredy</string>
+    <string name="dfecha_nacimiento">31/07/2001</string>
+    <string name="dtelefono">9812202222</string>
+    <string name="demail">fredy@gmail.com</string>
+    <string name="ddescripcion">Sin Información Disponible</string>
     <string name="editar">Editar Datos</string>
     <string name="pnombre_completo">Nombre</string>
     <string name="pfecha_nacimiento">FechaNacimiento</string>

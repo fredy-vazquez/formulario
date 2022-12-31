@@ -46,11 +46,17 @@ public class MainActivity extends AppCompatActivity {
             String email = parametros.getString(getResources().getString(R.string.pemail));
             String descripcion = parametros.getString(getResources().getString(R.string.pdescripcion));
 
-            editTextPersonName.setText(nombreCompleto);
-            editTextBirthDate.setText(fechaNacimiento);
-            editTextPhone.setText(telefono);
-            editTextEmail.setText(email);
-            editTextDescription.setText(descripcion);
+            if(nombreCompleto != null || nombreCompleto != "")
+                editTextPersonName.setText(nombreCompleto);
+            if(fechaNacimiento != null || fechaNacimiento != "")
+                editTextBirthDate.setText(fechaNacimiento);
+            if(telefono != null || telefono != "")
+                editTextPhone.setText(telefono);
+            if(email != null || email != "")
+                editTextEmail.setText(email);
+            if(descripcion != null || descripcion != "")
+                editTextDescription.setText(descripcion);
+
         }
 
     }

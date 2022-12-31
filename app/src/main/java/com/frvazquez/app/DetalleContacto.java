@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,12 @@ public class DetalleContacto extends AppCompatActivity {
     }
 
     private void cargarDatosContacto() {
+        tvNombre = findViewById(R.id.tvNombre);
+        tvFechaNacimiento = findViewById(R.id.tvFechaNacimiento);
+        tvTelefono = findViewById(R.id.tvTelefono);
+        tvEmail = findViewById(R.id.tvEmail);
+        tvDescripcion = findViewById(R.id.tvDescripcion);
+
         Bundle parametros = getIntent().getExtras();
 
         String nombreCompleto = parametros.getString(getResources().getString(R.string.pnombre_completo));
@@ -31,17 +38,24 @@ public class DetalleContacto extends AppCompatActivity {
         String email = parametros.getString(getResources().getString(R.string.pemail));
         String descripcion = parametros.getString(getResources().getString(R.string.pdescripcion));
 
-        tvNombre = findViewById(R.id.tvNombre);
-        tvFechaNacimiento = findViewById(R.id.tvFechaNacimiento);
-        tvTelefono = findViewById(R.id.tvTelefono);
-        tvEmail = findViewById(R.id.tvEmail);
-        tvDescripcion = findViewById(R.id.tvDescripcion);
+        tvNombre.setText(getResources().getString(R.string.dnombre_completo));
+        tvFechaNacimiento.setText(getResources().getString(R.string.dfecha_nacimiento));
+        tvTelefono.setText(getResources().getString(R.string.dtelefono));
+        tvEmail.setText(getResources().getString(R.string.demail));
+        tvDescripcion.setText(getResources().getString(R.string.ddescripcion));
 
-        tvNombre.setText(nombreCompleto);
-        tvFechaNacimiento.setText(fechaNacimiento);
-        tvTelefono.setText(telefono);
-        tvEmail.setText(email);
-        tvDescripcion.setText(descripcion);
+
+        Log.i("datos", nombreCompleto+" "+telefono+" "+getResources().getString(R.string.dnombre_completo));
+        if(nombreCompleto != null && !nombreCompleto.isEmpty())
+            tvNombre.setText(nombreCompleto);
+        if(fechaNacimiento != null && !fechaNacimiento.isEmpty())
+            tvFechaNacimiento.setText(fechaNacimiento);
+        if(telefono != null && !telefono.isEmpty())
+            tvTelefono.setText(telefono);
+        if(email != null && !email.isEmpty())
+            tvEmail.setText(email);
+        if(descripcion != null && !descripcion.isEmpty())
+            tvDescripcion.setText(descripcion);
     }
 
     private void editarContacto() {
